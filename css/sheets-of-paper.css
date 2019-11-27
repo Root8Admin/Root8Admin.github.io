@@ -12,7 +12,7 @@ html, body {
 	/* Use the platform's native font as the default */
 	font-family: "KaiTi", -apple-system, "KaiTi","San Francisco", "Segoe UI", "Helvetica Neue", sans-serif;
 	/* Define a reasonable base font size */
-	font-size: 16pt;
+	font-size: 14pt;
 
 	/* Styles for better appearance on screens only -- are reset to defaults in print styles later */
 
@@ -45,6 +45,7 @@ div.page-break {
 h1 {
 	/* Force page breaks after */
 	page-break-before: always;
+	font-size: 30pt;
 }
 /* For all headings */
 h1, h2, h3, h4, h5, h6 {
