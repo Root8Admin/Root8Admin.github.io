@@ -2,41 +2,315 @@
 <html lang="zh-CN">
   <head>
     <title>梧州机场安全监察部在线办证系统</title>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="renderer" content="webkit"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
     <meta name="keywords" content="办证">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
-	<link rel="icon" href="./images/titleicon.png" type="image/x-icon"/>
+	<link rel="icon" href="./images/titleicon.png" type="image/x-icon">
 	<!-- <link rel="stylesheet" type="text/css" href="./css/style.css"/> -->
 	<link rel="stylesheet" type="text/css" href="css/sheets-of-paper-a4.css">
+	<link rel="stylesheet" href="css/swiper.min.css">
 
-    <script src="./js/jquery.min.js" ></script>
+    <style>
+		html, body {
+			position: relative;
+			height: 100%;
+		}
+		body {
+			background: #eee;
+			font-family: KaiTi, Helvetica, Arial, sans-serif;
+			font-size: 14px;
+			color: #000;
+			margin: 0;
+			padding: 0;
+		}
+		.swiper-container {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+		}
+		.swiper-slide {
+			text-align: center;
+			font-size: 18px;
+			background: #fff;
+
+			/* Center slide text vertically */
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+			-webkit-justify-content: center;
+			justify-content: center;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			-webkit-align-items: center;
+			align-items: center;
+		}
+		.menu {
+			min-width: 100px;
+			width: 70%;
+			max-width: 320px;
+			background-color: #2C8DFB;
+			color: #fff;
+		}
+		.content {
+			width: 100%;
+		}
+
+		.menu-button {
+			position: absolute;
+			top: 38.2%; left: 0px;
+
+			padding: 10px;
+
+			cursor: pointer;
+
+			-webkit-transition: .3s;
+			transition: .3s;
+
+			background-color: #2C8DFB;
+
+			margin: 6px;
+			border-radius: 5px;
+		}
+		.menu-button .bar:nth-of-type(1) {
+			margin-top: 0px;
+		}
+		.menu-button .bar:nth-of-type(3) {
+			margin-bottom: 0px;
+		}
+
+		.bar {
+			position: relative;
+			display: block;
+
+			width: 35px;
+			height: 5px;
+
+			margin: 8px auto;
+			background-color: #fff;
+
+			border-radius: 10px;
+
+			-webkit-transition: .3s;
+			transition: .3s;
+		}
+
+		.menu-button:hover .bar:nth-of-type(1) {
+			-webkit-transform: translateY(1.5px) rotate(-4.5deg);
+			-ms-transform: translateY(1.5px) rotate(-4.5deg);
+			transform: translateY(1.5px) rotate(-4.5deg);
+		}
+		.menu-button:hover .bar:nth-of-type(2) {
+			opacity: .9;
+		}
+		.menu-button:hover .bar:nth-of-type(3) {
+			-webkit-transform: translateY(-1.5px) rotate(4.5deg);
+			-ms-transform: translateY(-1.5px) rotate(4.5deg);
+			transform: translateY(-1.5px) rotate(4.5deg);
+		}
+
+		.cross .bar:nth-of-type(1) {
+			-webkit-transform: translateY(15px) rotate(-45deg);
+			-ms-transform: translateY(15px) rotate(-45deg);
+			transform: translateY(15px) rotate(-45deg);
+		}
+		.cross .bar:nth-of-type(2) {
+			opacity: 0;
+		}
+		.cross .bar:nth-of-type(3) {
+			-webkit-transform: translateY(-15px) rotate(45deg);
+			-ms-transform: translateY(-15px) rotate(45deg);
+			transform: translateY(-15px) rotate(45deg);
+		}
+		.cross:hover .bar:nth-of-type(1) {
+			-webkit-transform: translateY(13.5px) rotate(-40.5deg);
+			-ms-transform: translateY(13.5px) rotate(-40.5deg);
+			transform: translateY(13.5px) rotate(-40.5deg);
+		}
+		.cross:hover .bar:nth-of-type(2) {
+			opacity: .1;
+		}
+		.cross:hover .bar:nth-of-type(3) {
+			-webkit-transform: translateY(-13.5px) rotate(40.5deg);
+			-ms-transform: translateY(-13.5px) rotate(40.5deg);
+			transform: translateY(-13.5px) rotate(40.5deg);
+		}
+	</style>
+
+	 <!-- Demo styles -->
+<!-- 	<style>
+		html, body {
+		  position: relative;
+		  height: 100%;
+		}
+		body {
+		  background: #fff;
+		  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+		  font-size: 14px;
+		  color:#000;
+		  margin: 0;
+		  padding: 0;
+		}
+		.swiper-container {
+		  width: 100%;
+		  height: 100%;
+		}
+		.swiper-slide {
+		  font-size: 18px;
+		  height: auto;
+		  -webkit-box-sizing: border-box;
+		  box-sizing: border-box;
+		  padding: 30px;
+		}
+	</style> -->
+
+	<style type="text/css">
+		.button {
+			display: -webkit-flex;
+			display: flex;
+			flex-direction: column;
+		}
+		.link {
+			max-width: 300px;
+   			margin: 10 auto 10 2;
+   			font-size: 20pt;
+   			color: white;
+   			text-decoration: none;
+		}
+	</style>
 
   </head>
   
-  <body class="document">
-		<div class="page" contenteditable="true">		  		  		
+  <body>
+
+  		<!-- Swiper -->
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide menu">
+					<div class="button">
+						<a href="#1" class="link">控制区通行证申办程序</a>
+						<a href="#2" class="link">控制区通行证提供资料</a>
+						<a href="#3" class="link">航活区车辆通行证办理</a>
+						<a href="#4" class="link">航活区车辆驾驶证办理</a>
+						<a href="#5" class="link">附件下载</a>
+					</div>
+				</div>
+				<div class="swiper-slide content">
+					<div class="menu-button">
+						<div class="bar"></div>
+						<div class="bar"></div>
+						<div class="bar"></div>
+					</div>
+					<div class="swiper-slide1">
+						<div class="document">
+							<div class="page" contenteditable="true">		  		  		
+								<p><h1 style="text-align:center">梧州西江机场控制区通行证申办程序</h1></p>
+								<p><b>一、申领表格:</b>由申请办证人员所属单位的安全联络员或指定人员向机场安监部申领机场控制区证件办理申请表格。</p>
+								<p><b>二、填写表格:</b>由申请办证人员本人按实际工作岗位需要如实填写申请表，并贴附近期免冠一寸照片及身份证复印件，由本单位安全联络员或负责人根据申请人工作的实际需要签署意见，并对其真实性负责。</p>
+								<p><b>三、公安网查询:</b>申请办证人员持申请表、身份证原复印件、所在单位证明函或户籍所在地无犯罪证明，到机场派出所经公安网查询，由机场派出所出具公安网查询无犯罪证明材料。</p>
+								<p><b>四、背景调查:</b>办证申请人需提供本人户籍所在地公安机关，包括无(故意)犯罪记录、未受过收容教养、强制戒毒、劳动教养、未受过行政拘留等情况证明材料，社区居委会、村委会对其近三年现实表现证明材料。</p>
+								<p><b>五、培训考核:</b>递交申请表格后，由机场安监部安排对申请办证人员进行证件管理使用知识进行至少4学时的培训并进行闭卷考试，培训档案由安监部存档，考试不合格者（80以上为合格），不予办证。</p>
+								<p><b>六、资格审核:</b>安监部收集整理申请办证人员的申办表格、培训考核档案、背景调查证明等相关情况资料进行综合审核。</p>
+								<p><b>七、证件办理(领取):</b>申请资料经安监部审批后，申请人到机场人财企划部缴纳办证工本费和押金，办证人员制作证件，并保存相关资料，申请人凭收据到安监部领取证件。</p>
+								<p><b>八、证件退还:</b>证件到期后，持证人到安监部申请注销证件，并凭安监部出具的证明和押金收据到人财企划部领回办证押金。</p>
+							</div>
+							
+	    					<div class="swiper-scrollbar"></div>
+    					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- <div class="page" contenteditable="true">		  		  		
 			<p><h1 style="text-align:center">梧州西江机场控制区通行证申办程序</h1></p>
-			<p>一、申领表格:由申请办证人员所属单位的安全联络员或指定人员向机场安监部申领机场控制区证件办理申请表格。</p>
-			<p>二、填写表格:由申请办证人员本人按实际工作岗位需要如实填写申请表，并贴附近期免冠一寸照片及身份证复印件，由本单位安全联络员或负责人根据申请人工作的实际需要签署意见，并对其真实性负责。</p>
-			<p>三、公安网查询:申请办证人员持申请表、身份证原复印件、所在单位证明函或户籍所在地无犯罪证明，到机场派出所经公安网查询，由机场派出所出具公安网查询无犯罪证明材料。</p>
-			<p>四、背景调查:办证申请人需提供本人户籍所在地公安机关，包括无(故意)犯罪记录、未受过收容教养、强制戒毒、劳动教养、未受过行政拘留等情况证明材料，社区居委会、村委会对其近三年现实表现证明材料。</p>
-			<p>五、培训考核:递交申请表格后，由机场安监部安排对申请办证人员进行证件管理使用知识进行至少4学时的培训并进行闭卷考试，培训档案由安监部存档，考试不合格者（80以上为合格），不予办证。</p>
-			<p>六、资格审核:安监部收集整理申请办证人员的申办表格、培训考核档案、背景调查证明等相关情况资料进行综合审核。</p>
-			<p>七、证件办理(领取):申请资料经安监部审批后，申请人到机场人财企划部缴纳办证工本费和押金，办证人员制作证件，并保存相关资料，申请人凭收据到安监部领取证件。</p>
-			<p>八、证件退还:证件到期后，持证人到安监部申请注销证件，并凭安监部出具的证明和押金收据到人财企划部领回办证押金。</p>
+			<p><b>一、申领表格:</b>由申请办证人员所属单位的安全联络员或指定人员向机场安监部申领机场控制区证件办理申请表格。</p>
+			<p><b>二、填写表格:</b>由申请办证人员本人按实际工作岗位需要如实填写申请表，并贴附近期免冠一寸照片及身份证复印件，由本单位安全联络员或负责人根据申请人工作的实际需要签署意见，并对其真实性负责。</p>
+			<p><b>三、公安网查询:</b>申请办证人员持申请表、身份证原复印件、所在单位证明函或户籍所在地无犯罪证明，到机场派出所经公安网查询，由机场派出所出具公安网查询无犯罪证明材料。</p>
+			<p><b>四、背景调查:</b>办证申请人需提供本人户籍所在地公安机关，包括无(故意)犯罪记录、未受过收容教养、强制戒毒、劳动教养、未受过行政拘留等情况证明材料，社区居委会、村委会对其近三年现实表现证明材料。</p>
+			<p><b>五、培训考核:</b>递交申请表格后，由机场安监部安排对申请办证人员进行证件管理使用知识进行至少4学时的培训并进行闭卷考试，培训档案由安监部存档，考试不合格者（80以上为合格），不予办证。</p>
+			<p><b>六、资格审核:</b>安监部收集整理申请办证人员的申办表格、培训考核档案、背景调查证明等相关情况资料进行综合审核。</p>
+			<p><b>七、证件办理(领取):</b>申请资料经安监部审批后，申请人到机场人财企划部缴纳办证工本费和押金，办证人员制作证件，并保存相关资料，申请人凭收据到安监部领取证件。</p>
+			<p><b>八、证件退还:</b>证件到期后，持证人到安监部申请注销证件，并凭安监部出具的证明和押金收据到人财企划部领回办证押金。</p>
+		</div>
 
-			<div class="page-break"></div>
+		<div class="page" contenteditable="true">			
+梧州西江机场办理控制区通行证提供资料
+序号	相关资料	提供单位
+1	梧州西江机场控制区人员通行证申请表	机场提供，办证人员填写
+2	身份证复印件、电子板照片	申请人提供
+3	申请人近三年来思想、工作表现证明	单位、学校、社区(村)委会
+4	申请人公安网查询资料	机场派出所
+5	申请人员背景调资料	户籍地派出所
+6	配偶、父母（或直接抚养人）背景调资料	户籍地派出所
+7	空防安全培训签到表、考试试卷	安全监察部
 
-			<p>第二页</p>
-		  				  		
+
+
+控制区办证费用收取
+一、办理机场控制区人员通行证(卡式)收取成本费50元/证和押金100元/证；
+二、办理人员(纸质)、车辆(纸质)通行证的缴纳成本费30元/证、押金100元/证；
+三、办理人员、车辆临时通行证的缴纳成本费5元/证、押金50元/证；
+四、办理机场门禁卡收取成本费30元/证；
+五、押金在退回证件时，凭押金单退回押金。
+凡因丢失或损坏证件者（申请补办证件的），除交纳罚款外，一律收取补办证件成本费50元。
 		</div>
 	  	
   	<div class="footer" id="">
   		<div class="line"></div>
-  		<p class="Copyright">Copyright © 安全监察部</p>
+  		<p class="Copyright" style="text-align:center">Copyright © 2019 安全监察部</p>
   	</div>
+
+  	<!-- Swiper JS -->
+	<script src="js/swiper.min.js"></script>
+	<script>
+	    var menuButton = document.querySelector('.menu-button');
+	    var openMenu = function () {
+	      swiper.slidePrev();
+	    };
+	    var swiper = new Swiper('.swiper-container', {
+	      slidesPerView: 'auto',
+	      initialSlide: 1,
+	      resistanceRatio: 0,
+	      slideToClickedSlide: true,
+	      on: {
+	        slideChangeTransitionStart: function () {
+	          var slider = this;
+	          if (slider.activeIndex === 0) {
+	            menuButton.classList.add('cross');
+	            // required because of slideToClickedSlide
+	            menuButton.removeEventListener('click', openMenu, true);
+	          } else {
+	            menuButton.classList.remove('cross');
+	          }
+	        }
+	        , slideChangeTransitionEnd: function () {
+	          var slider = this;
+	          if (slider.activeIndex === 1) {
+	            menuButton.addEventListener('click', openMenu, true);
+	          }
+	        },
+	      }
+	    });
+	</script>
+
+	<!-- Initialize Swiper -->
+	<script>
+		var swiper = new Swiper('.swiper-container1', {
+		  direction: 'vertical',
+		  slidesPerView: 'auto',
+		  freeMode: true,
+		  scrollbar: {
+		    el: '.swiper-scrollbar',
+		  },
+		  mousewheel: true,
+		});
+	</script>
 
   </body>
 </html>
